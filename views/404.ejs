@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-base-100 text-base-content">
+
+    <%- include('partials/navbar', { page: '' }) %> 
+
+    <section class="flex flex-col items-center justify-center min-h-screen text-center">
+        <img src="https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1" alt="Error Icon" class="w-32 mb-4">
+        <h1 class="text-5xl font-bold text-red-600 mb-4">404</h1>
+        <p class="text-xl text-gray-600 mb-6"><%= message %></p>
+        <a href="/" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded shadow-md hover:bg-blue-700">
+            Go Back Home
+        </a>
+    </section>
+    
+</body>
+</html>

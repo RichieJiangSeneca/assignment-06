@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/main.css">
+<%- include('partials/navbar', { page: '' }) %>
+<div class="max-w-xl mx-auto mt-10 p-6 bg-white rounded shadow">
+    <h1 class="text-3xl font-bold mb-4">Edit Project <%= project.title %></h1>
+    <form action="/solutions/editProject" method="POST" class="space-y-4">
+        <input type="hidden" name="id" value="<%= project.id %>">
+        <input type="text" name="title" value="<%= project.title %>" class="input input-bordered w-full" required>
+        <input type="url" name="feature_img_url" value="<%= project.feature_img_url %>" class="input input-bordered w-full" required>
+        <select name="sector_id" class="input input-bordered w-full" required>
+            <% sectors.forEach(sector => { %>
+                <option value="<%= sector.id %>" <%= (project.sector_id == sector.id) ? "selected" : "" %>><%= sector.sector_name %></option>
+            <% }) %>
+        </select>
+        <textarea name="intro_short" class="textarea textarea-bordered w-full" required><%= project.intro_short %></textarea>
+        <textarea name="summary_short" class="textarea textarea-bordered w-full" required><%= project.summary_short %></textarea>
+        <textarea name="impact" class="textarea textarea-bordered w-full" required><%= project.impact %></textarea>
+        <input type="url" name="original_source_url" value="<%= project.original_source_url %>" class="input input-bordered w-full" required>
+        <button type="submit" class="btn btn-primary w-full">Update Project</button>
+    </form>
+    <a class="btn btn-error mt-4" href="/solutions/deleteProject/<%= project.id %>">Delete Project</a>
+</div>

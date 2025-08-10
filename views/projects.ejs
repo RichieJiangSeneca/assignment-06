@@ -1,0 +1,61 @@
+<%- include('partials/navbar', { page: '' }) %>
+<!DOCTYPE html>
+<html lang="en" data-theme="garden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="flex flex-col items-center w-full">
+
+      <!-- Hero Section -->
+      <div class="flex flex-col items-center w-[80%]">
+        <div class="hero bg-base-200 p-6 w-full rounded-lg mb-6">
+          <div class="hero-content text-center">
+            <div class="max-w-md">
+              <h1 class="text-5xl font-bold">Projects</h1>
+              <p class="py-6">
+                Browse the current list of Projects in our database. Click the
+                theme to filter by sectors such as:
+              </p>
+              <% sectors.forEach(function(sector) { %>
+                <a href="/solutions/projects?sector=<%= sector.id %>" class="btn btn-xs btn-primary mx-1">
+                  <%= sector.sector_name %>
+                </a>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="overflow-x-auto w-full">
+          <table class="table table-zebra w-full">
+            <tbody>
+              <% projects.forEach(function(project) { %>
+                <tr>
+                  <th class="text-base font-bold"><%= project.title %></th>
+                  <td>
+                    <a href="/solutions/projects?sector=<%= project.sector_id %>" 
+                      class="btn mt-2 btn-xs bg-gray-200 text-black font-semibold">
+                        <%= project.Sector ? project.Sector.sector_name : "Unknown" %>
+                    </a>
+                  </td>
+                  <td><%= project.summary_short %></td>
+                  <td>
+                    <a class="btn btn-xs btn-outline" href="/solutions/projects/<%= project.id %>">
+                      details
+                    </a>
+                    <a class="btn btn-xs btn-success ml-2" href="/solutions/editProject/<%= project.id %>">
+                      edit
+                    </a>
+                  </td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

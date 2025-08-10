@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="bg-[#fcf9f7] min-h-screen">
+  <%- include('partials/navbar', { page: '/login' }) %>
+
+  <main class="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-xl p-6">
+    <h1 class="text-2xl font-bold mb-4">Login</h1>
+
+    <form method="POST" action="/login" class="space-y-4">
+      <input type="text" name="userName" placeholder="User Name" required value="<%= userName %>" class="input input-bordered w-full" />
+      <input type="password" name="password" placeholder="Password" required class="input input-bordered w-full" />
+      <button type="submit" class="btn btn-primary w-full">Login</button>
+    </form>
+
+    <% if (errorMessage) { %>
+      <div class="alert alert-error mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span><%= errorMessage %></span>
+      </div>
+    <% } %>
+  </main>
+</body>
+</html>

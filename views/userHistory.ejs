@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User History | Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="bg-[#fcf9f7] min-h-screen">
+  <%- include('partials/navbar', { page: '/userHistory' }) %>
+
+  <main class="max-w-4xl mx-auto mt-10 bg-white shadow-lg rounded-xl p-6">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold">User History</h1>
+      <p class="text-gray-700">User: <strong><%= session.user.userName %></strong> | Email: <strong><%= session.user.email %></strong></p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>Login Date/Time</th>
+            <th>Client Information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (session.user && session.user.loginHistory && session.user.loginHistory.length) { %>
+            <% session.user.loginHistory.forEach(function(item){ %>
+              <tr>
+                <td><%= item.dateTime %></td>
+                <td><%= item.userAgent %></td>
+              </tr>
+            <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="2">No login history yet.</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

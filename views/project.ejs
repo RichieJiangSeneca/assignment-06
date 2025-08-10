@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= project.title %> | Climate Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="bg-[#fcf9f7] min-h-screen">
+    <!-- Navbar -->
+    <%- include('partials/navbar', { page: '' }) %>
+
+    <!-- Main -->
+    <main class="flex flex-col items-center mt-10 px-2">
+        <div class="bg-white shadow-lg rounded-xl w-full max-w-4xl p-8">
+            <h1 class="text-3xl font-extrabold mb-4 text-[#181e29]"><%= project.title %></h1>
+            
+            <% if (project.feature_img_url) { %>
+                <img src="<%= project.feature_img_url %>" alt="<%= project.title %>" class="rounded-lg mb-6 w-full max-h-96 object-cover" />
+            <% } %>
+            
+            <% if (sectorName) { %>
+                <span class="inline-block mb-4 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold"><%= sectorName %></span>
+            <% } %>
+            
+            <% if (project.summary_short) { %>
+                <p class="mb-6 text-gray-700"><%= project.summary_short %></p>
+            <% } %>
+            
+            <div class="space-y-3">
+                <% if (project.intro_short) { %>
+                    <div>
+                        <h2 class="text-lg font-bold text-[#181e29]">Introduction:</h2>
+                        <p class="text-gray-700"><%= project.intro_short %></p>
+                    </div>
+                <% } %>
+                <% if (project.impact) { %>
+                    <div>
+                        <h2 class="text-lg font-bold text-[#181e29]">Impact:</h2>
+                        <p class="text-gray-700"><%= project.impact %></p>
+                    </div>
+                <% } %>
+            </div>
+            
+            <div class="flex gap-4 mt-8">
+                <a href="#" onclick="history.back(); return false;" class="btn btn-secondary">Back</a>
+                <% if (project.original_source_url) { %>
+                    <a href="<%= project.original_source_url %>" target="_blank" class="btn">More Information</a>
+                <% } %>
+                <!-- Edit Button -->
+                <% if (session && session.user) { %>
+                  <a class="btn btn-success" href="/solutions/editProject/<%= project.id %>">Edit</a>
+                <% } %>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<nav class="bg-[#121a26] text-white py-6 px-8 flex justify-between items-center w-full shadow">
+  <a href="/" class="text-2xl font-extrabold tracking-wide">Climate Solutions</a>
+
+  <div class="space-x-8 text-lg font-semibold flex items-center">
+    <a href="/" class="<%= (page == '/' || page == '/home') ? 'underline' : '' %> hover:underline transition">Home</a>
+    <a href="/solutions/projects" class="<%= (page == '/solutions/projects') ? 'underline' : '' %> hover:underline transition">View Projects</a>
+    <a href="/about" class="<%= (page == '/about') ? 'underline' : '' %> hover:underline transition">About</a>
+
+    <% if (session && session.user) { %>
+      <!-- Logged in: show Account dropdown with Add Project, User History, Logout -->
+      <details class="inline-block">
+        <summary class="cursor-pointer">Account: <%= session.user.userName %></summary>
+        <ul class="p-2 right-0 bg-[#1f2937] rounded-md shadow mt-2">
+          <li><a class="<%= (page == '/solutions/addProject') ? 'underline' : '' %> block px-3 py-1" href="/solutions/addProject">Add Project</a></li>
+          <li><a class="<%= (page == '/userHistory') ? 'underline' : '' %> block px-3 py-1" href="/userHistory">User History</a></li>
+          <li><a class="block px-3 py-1" href="/logout">Log Out</a></li>
+        </ul>
+      </details>
+    <% } else { %>
+      <!-- Logged out: show Account dropdown with Login/Register -->
+      <details class="inline-block">
+        <summary class="cursor-pointer">Account</summary>
+        <ul class="p-2 right-0 bg-[#1f2937] rounded-md shadow mt-2">
+          <li><a class="<%= (page == '/login') ? 'underline' : '' %> block px-3 py-1" href="/login">Login</a></li>
+          <li><a class="<%= (page == '/register') ? 'underline' : '' %> block px-3 py-1" href="/register">Register</a></li>
+        </ul>
+      </details>
+    <% } %>
+  </div>
+</nav>
