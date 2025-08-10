@@ -1,26 +1,12 @@
 /********************************************************************************
-*  WEB322 – Assignment 05
+*  WEB322 – Assignment 06
 * 
 *  I declare that this assignment is my own work in accordance with Seneca's
 *  Academic Integrity Policy:
 * 
 *  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
 * 
-*  Name: Siyang Jiang Student ID: 172747230 Date: July 27 2025
-*
-*  Published URL
-*
-********************************************************************************/
-
-/********************************************************************************
-*  WEB322 – Assignment 05
-* 
-*  I declare that this assignment is my own work in accordance with Seneca's
-*  Academic Integrity Policy:
-* 
-*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
-* 
-*  Name: Siyang Jiang Student ID: 172747230 Date: July 27 2025
+*  Name: Siyang Jiang Student ID: 172747230 Date: Aug 10th 2025
 *
 *  Published URL
 *
